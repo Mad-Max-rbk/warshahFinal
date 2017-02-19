@@ -1,13 +1,13 @@
-var company = require('../models/companydb.js');
-var services = require('../models/servicesdb.js');
+var company = require('./models/companydb.js');
+var services = require('./models/servicesdb.js');
 module.exports.handleUsers = {
   signin : function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
 
-    company.findOne({c_username: username,c_password:password})
+    company.Comp.findOne({c_username: username,c_password:password})
       .then(function (user) {
-        if (user.length==0) {
+        if (user.length===0) {
           res.json("username or password incorrect")
         } 
         else{
@@ -53,7 +53,7 @@ module.exports.handleUsers = {
   },
 
   // get servecies
-  get services: function(req, res) {
+  getservices: function(req, res) {
     services.find({}, function(err, serv){
       if(err){
         res.json(err);

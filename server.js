@@ -1,0 +1,10 @@
+var express=require("express");
+var bodyParser=require("body-parser");
+var route=require('./control/route.js');
+var app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+route(app);
+var port=(process.env.PORT || 8080);
+app.listen(port);
+console.log('Running on port '+port);

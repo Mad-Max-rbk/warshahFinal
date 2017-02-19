@@ -1,0 +1,46 @@
+html, body {
+  margin: 0;
+  padding-left: 50;
+  padding-right: 50;
+  font-family: 'Roboto', sans-serif;
+  width:100%;
+}
+
+#main {
+ border-left: 2.5px dotted #e7e7e6;
+ border-right: 2.5px dotted #e7e7e6;
+ border-bottom: 2.5px dotted #e7e7e6;
+
+  padding: 40px   ;
+}
+
+.img-responsive {
+ height: 186;
+ width: 240;
+ padding: 20;
+}
+
+.carousel .item {
+  height: 470px;
+  background-color: #dbdbdb;
+}
+.carousel .slide{
+  background-color: red
+  margin: 0;
+  padding-top: 0;
+}
+
+.footer {
+  text-align: center;
+  margin: 80px 0 110px;
+}
+
+.footer h2 {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.footer img {
+ margin: 0 10px;
+}
+

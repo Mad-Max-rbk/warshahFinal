@@ -1,5 +1,5 @@
-var company = require('../models/companydb.js');
-var services = require('../models/servicesdb.js');
+var company = require('./models/companydb.js');
+var services = require('./models/servicesdb.js');
 module.exports.handleUsers = {
   signin : function(req, res) {
     var username = req.body.username;
@@ -53,7 +53,7 @@ module.exports.handleUsers = {
   },
 
   // get servecies
-  get services: function(req, res) {
+  getservices: function(req, res) {
     services.find({}, function(err, serv){
       if(err){
         res.json(err);

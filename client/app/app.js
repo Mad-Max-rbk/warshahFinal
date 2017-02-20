@@ -16,8 +16,8 @@
 		templateUrl:'app/user/login.html',
 		controller:'UserController'                 
 	})
-	.when('/getTradeworker',{
-		templateUrl:'app/tradworker/tradworker.html',
+	.when('/tradeworker',{
+		templateUrl:'app/tradeworker/tradeworker.html',
 		controller:'TradeworkerContr'                 
 	})
 	.when('/', {
@@ -25,5 +25,5 @@
 		controller:'MainController'
 	})
 	 .otherwise({redirectTo:'/'});
-	 
+
 })

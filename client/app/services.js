@@ -4,17 +4,18 @@ angular.module('myapp.services', [])
   var signin = function (user) {
     return $http({
       method: 'POST',
-      url: '/api/signin',
+      url: '/api/user/signin',
       data: user
-    }).then(function (resp) {
+    })
+    .then(function (resp) {
       return resp.data;
     });
-  }
+  };
 
   var signup = function (user) {
     return $http({
       method: 'POST',
-      url: '/api/signup',
+      url: '/api/user/signup',
       data: user
     }).then(function (resp) {
       return resp.data;
@@ -22,7 +23,9 @@ angular.module('myapp.services', [])
   }
 
   var signout = function () {
-    $location.path('/signin');
+    $window.localStorage.removeItem('com.book');
+    $window.localStorage.removeItem('user.book');
+    $location.path('/login');
   }
 
   return {

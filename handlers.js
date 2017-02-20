@@ -8,6 +8,7 @@ module.exports.handleUsers = {
 
     User.findOne({username: username})
       .then(function (user) {
+       // console.log(user)
         if (!user) {
           res.status(404).json("user not found")
         } else {
@@ -31,15 +32,15 @@ module.exports.handleUsers = {
    console.log(req.body.username)
    console.log(req.body.password)
     // check to see if user already exists
-    User.findOne({c_username: username})
+    User.findOne({username: username})
       .exec(function (err, user) {
         if (user) {
           res.json('User already exist!');
         } else {
           // make a new user if not one
           return User.create({
-            c_username: username,
-            c_password: password
+            username: username,
+            password: password
           }, function (err, newUser) {
               // create token to send back for auth
               if(err){

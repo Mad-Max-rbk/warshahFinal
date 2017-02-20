@@ -1,4 +1,5 @@
 angular.module('myapp.services', [])
+
 .factory('User', function ($http, $location, $window) { 
   var signin = function (user) {
     return $http({

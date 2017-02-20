@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var bodyParser=require("body-parser");
 const mongoose = require('mongoose');
-
+var handlers=require("./handlers.js");
 
 ////
 app.use(express.static(__dirname + '/client'));

@@ -1,4 +1,4 @@
-var User = require('./models/userModel.js');
+var User = require('./models/companydb.js');
 var jwt = require('jwt-simple');
 // check for user in data base
 module.exports.handleUsers = {
@@ -28,17 +28,18 @@ module.exports.handleUsers = {
   signup: function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
-   
+   console.log(req.body.username)
+   console.log(req.body.password)
     // check to see if user already exists
-    User.findOne({username: username})
+    User.findOne({c_username: username})
       .exec(function (err, user) {
         if (user) {
           res.json('User already exist!');
         } else {
           // make a new user if not one
           return User.create({
-            username: username,
-            password: password
+            c_username: username,
+            c_password: password
           }, function (err, newUser) {
               // create token to send back for auth
               if(err){

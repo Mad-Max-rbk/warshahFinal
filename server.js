@@ -16,9 +16,9 @@ db = mongoose.connection;
 db.once('open',function () {
 	console.log('mongoDB is open');
 });
-app.post('/api/users/signup', handlers.handleUsers.signup);
-app.post('/api/users/signin', handlers.handleUsers.signin);
-app.get('/api/users', handlers.handleUsers.getUsers);
+app.post('/api/signup', handlers.handleUsers.signup);
+app.post('/api/signin', handlers.handleUsers.signin);
+
 
 app.listen(port);
 app.use(express.static(__dirname + '/client'));

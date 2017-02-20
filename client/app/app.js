@@ -21,11 +21,9 @@
 		controller:'TradeworkerContr'                 
 	})
 	.when('/', {
-		templateUrl:'app/main/main.html',
-		controller:'MainController'
-	})
-	.otherwise({
-		redirectTo:'/'
-	})
-	
+      templateUrl: 'app/main/main.html',
+      controller: 'MainController'
+    })
+	 .otherwise({redirectTo:'/'});
+	 
 })

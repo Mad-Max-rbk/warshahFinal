@@ -8,7 +8,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <link href="css/login.css" rel="stylesheet" />
 </head>
-<body>
+<body ng-app='myapp'>
 
 
 <!-- logo -->
@@ -23,7 +23,7 @@
 
  <div class="navbar-header">
       
-      <a class="navbar-brand" href="index.html">Home Page</a>
+      <a class="navbar-brand" href="#/main">Home Page</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -49,20 +49,20 @@
         <button type="submit" class="btn btn-default">Search</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="tradeworker.html">tradeworker</a></li>
-        <li><a href="./app/user/login.html">signin</a></li>
+      <li><a href="#/tradeworker">tradeworker</a></li>
+        <li><a href="#/login">signin</a></li>
         <li><a href="#/signup">signup</a></li>
       </ul>
     </div>
 </nav>
 
-
+<ng-view></ng-view>
 
 <!-- script link -->
-<script src="/lib/jquery/dist/jquery.js"></script>
-<script src="/lib/angular/angular.js"></script>
-<script src="/lib/angular-route/angular-route.js"></script>
-<script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="lib/jquery.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
 
 <script src="app/services.js"></script>
 <script src="app/app.js"></script>

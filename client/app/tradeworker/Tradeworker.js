@@ -12,7 +12,7 @@
 		})
 		.catch(function (error) {
 			console.log(error);
-		}
+		})
 	}
 
 	$scope.addhandworker = function(){
@@ -23,7 +23,7 @@
 		})
 		.catch(function (error) {
 			console.log(error);
-		}
+		})
 	}
 
 })

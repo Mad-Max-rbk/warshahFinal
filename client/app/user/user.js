@@ -60,24 +60,25 @@
     }
   }
 }
-// 	 $scope.ifuser=true;
+})
+//   $scope.ifuser=true;
 
-// 	$scope.signin = function ($scope.user) {
-// 		User.signin($scope.user)
-// 		.then(function (data) {
-// 			$scope.ifuser=false;
-// 			$location.path('/');
-// 			$window.location.reload();
-// 		})
-// 		.catch(function (error) {
-// 			console.log(error);
-// 			$scope.ifuser=false;
-// 			$scope.username="";
-// 			$scope.password="";
-// 		})
-// 	}
+//  $scope.signin = function ($scope.user) {
+//    User.signin($scope.user)
+//    .then(function (data) {
+//      $scope.ifuser=false;
+//      $location.path('/');
+//      $window.location.reload();
+//    })
+//    .catch(function (error) {
+//      console.log(error);
+//      $scope.ifuser=false;
+//      $scope.username="";
+//      $scope.password="";
+//    })
+//  }
 
-//  	$scope.signup = function (newUser) {
+//    $scope.signup = function (newUser) {
 //         newUser.username = $scope.username;
 //         User.signup(newUser)
 //         .then(function (user) {
@@ -87,11 +88,10 @@
 //             });
 //         })
 //         .catch(function (error) {
-//         	console.log(error);
+//          console.log(error);
 //             console.log("user already exist");
 //         })
 //     }
-// })
 
 
    

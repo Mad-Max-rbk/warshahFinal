@@ -1,7 +1,12 @@
  angular.module('myapp.user',[])
 
-.controller('UserController',function ($scope,$http,$location,$window,User){
+.controller('UserController',function ($scope , $http , $location , $window , User){
 	$scope.user = {};
+
+  if($window.localStorage.getItem("com.book")) {
+        $location.path('/');
+      }
+
 	$scope.signin = function () {
     var passFlag = $scope.user.password;
     var userFlag = $scope.user.username;
@@ -11,7 +16,7 @@
         console.log(data)
         $window.localStorage.setItem('com.book', data.token);
         $window.localStorage.setItem('user.book', $scope.user.username);
-        
+        $location.path('/');
         // if(data.user.type){
         //   $window.localStorage.setItem('user.type', data.user.type);  
         // }
@@ -60,39 +65,12 @@
     }
   }
 }
+
+$scope.signout = function(){
+  User.signout();
+}
+
 })
-//   $scope.ifuser=true;
-
-//  $scope.signin = function ($scope.user) {
-//    User.signin($scope.user)
-//    .then(function (data) {
-//      $scope.ifuser=false;
-//      $location.path('/');
-//      $window.location.reload();
-//    })
-//    .catch(function (error) {
-//      console.log(error);
-//      $scope.ifuser=false;
-//      $scope.username="";
-//      $scope.password="";
-//    })
-//  }
-
-//    $scope.signup = function (newUser) {
-//         newUser.username = $scope.username;
-//         User.signup(newUser)
-//         .then(function (user) {
-//             $scope.signin({
-//                 username:newUser.username,
-//                 password:newUser.password
-//             });
-//         })
-//         .catch(function (error) {
-//          console.log(error);
-//             console.log("user already exist");
-//         })
-//     }
-
 
    
 

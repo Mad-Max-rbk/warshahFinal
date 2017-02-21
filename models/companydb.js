@@ -1,13 +1,16 @@
 var mongo = require('mongoose')
 
 var comp= new mongo.Schema({
-    c_username:String,
-    c_password:String,
+    username:String,
+    password:String,
     c_logo:String,
     c_address:String,
     c_email:String,
     c_phone:Number,
-},{collection:'company'});
+	},
+	{
+		collection:'company'
+	});
 
 var Comp=mongo.model('companyuser',comp)
 

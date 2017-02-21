@@ -1,11 +1,4 @@
-<!-- <div class="logo" align="center">
-  <br>
-  <img src="app/main/image/Logo.gif"  width="220px" align="center" >
-  <hr class="omb_hrOr">
-</div>
-<div class="container">
- -->
-  <form class="well form-horizontal" id="contact_form">
+<form class="well form-horizontal" ng-submit="addservice()"  >
     <fieldset>
 
       <!-- Form Name -->
@@ -14,11 +7,19 @@
       <!-- Text input-->
 
       <div class="form-group">
-        <label class="col-md-4 control-label">User Name</label>  
+        <label class="col-md-4 control-label">service type</label>  
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="username" placeholder="User Name" class="form-control"  type="text">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select class="form-control" ng-model="data.s_type" required>
+            <option value="Smith">Smith</option>
+            <option value="Plumber">Plumber</option>
+            <option value="painter">painter</option>
+            <option value="housekeeping">housekeeping</option>
+            <option value="carpenter">carpenter</option>
+             <option value="Electricity technician">Electricity technician</option>
+            <option value="Other" >Other</option>
+          </select>
           </div>
         </div>
       </div>
@@ -29,50 +30,52 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-            <input  name="place" placeholder="Place" class="form-control"  type="text">
+           <select class="form-control" ng-model="data.s_loc" required>
+            <option value="Amman">Amman</option>
+            <option value="Aqaba">Aqaba</option>
+            <option value="Zarqa">Zarqa</option>
+            <option value="Irbid">Irbid</option>
+            <option value="Tafila">Tafila</option>
+             <option value="Karak">Karak</option>
+             <option value="Maan">Maan</option>
+            <option value="Other" >Other</option>
+          </select>
           </div>
         </div>
       </div>
 
       <!-- Text input-->
-      <div class="form-group"> 
-        <label class="col-md-4 control-label">Cervice</label>
-        <div class="col-md-4 selectContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-            <select name="cervice" class="form-control selectpicker">
-              <option value="">Select your Cervice</option>
-              <option>Carpenter</option>
-              <option>Smith</option>
-              <option >Electricity technician</option>
-              <option >Plumber</option>
-              <option >Painter</option>
-
-            </select>
-          </div>
-        </div>
-      </div>
+     
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label">Experiance</label>  
+        <label class="col-md-4 control-label">Description</label>  
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
-            <input  name="experiance" placeholder="Experiance" class="form-control"  type="text">
+            <input  ng-model="data.s_desc" placeholder="description" class="form-control"  type="text" required>
           </div>
         </div>
       </div>
 
       <!-- Text input-->
 
-
+<div class="form-group">
+        <label class="col-md-4 control-label">Image Url</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
+            <input  ng-model="data.s_img" placeholder="imageurl" class="form-control"  type="text" required>
+          </div>
+        </div>
+      </div>
+ <!--      imgurl -->
       <div class="form-group">
         <label class="col-md-4 control-label">E-Mail</label>  
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+            <input ng-model="data.s_email" placeholder="E-Mail Address" class="form-control"  type="email" required>
           </div>
         </div>
       </div>
@@ -85,7 +88,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-            <input name="contact_no" placeholder="(962)" class="form-control" type="text">
+            <input ng-model="data.s_phone" placeholder="(962)" class="form-control" type="text" required>
           </div>
         </div>
       </div>
@@ -96,7 +99,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label"></label>
         <div class="col-md-4">
-          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-lg btn-primary btn-block" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+          <button type="submit" class="btn btn-lg btn-primary btn-block" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
         </div>
       </div>
 

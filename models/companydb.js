@@ -7,7 +7,10 @@ var comp= new mongo.Schema({
     c_address:String,
     c_email:String,
     c_phone:Number,
-},{collection:'company'});
+	},
+	{
+		collection:'company'
+	});
 
 var Comp=mongo.model('companyuser',comp)
 

@@ -44,3 +44,10 @@ html, body {
  margin: 0 10px;
 }
 
+#navColor {
+  color: white;
+}
+
+#navCol {
+  color: #f4bcbc;
+}

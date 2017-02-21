@@ -9,6 +9,7 @@ module.exports.handleUsers = {
 
     User.findOne({username: username})
       .then(function (user) {
+        console.log(user)
        // console.log(user)
         if (!user) {
           res.status(404).json("user not found")
@@ -30,8 +31,6 @@ module.exports.handleUsers = {
   signup: function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
-   console.log(req.body.username)
-   console.log(req.body.password)
     // check to see if user already exists
     User.findOne({username: username})
       .exec(function (err, user) {

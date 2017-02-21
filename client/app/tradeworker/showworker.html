@@ -1,0 +1,25 @@
+<div class="panel panel-default" ng-init="getAllTradeworker()">
+<div class="panel-heading" style="background-color: #420606"> </div>
+  <div class="panel-heading" style="background-color: #09091e"> 
+    <h3 class="panel-title" style="color: white; text-align: center;">Service</h3>
+  </div>
+    <div class="panel-body">
+      <div class="row">
+      <div ng-repeat="worker in data">
+        <div class="col-md-6">
+         <div class="col-md-6">
+        <img class="thumbnail" src="{{worker.s_img}}" style="width: 180px;height: 280px">
+        </div>
+        <div class="col-md-6">
+          <h2 style="font-weight: bold;">{{worker.s_type}}</h2>
+          <p><span style="color: #380001"> Email </span> {{worker.s_email}}</p>
+          <p><span style="color: #380001">Phone : </span>{{worker.s_phone}}</p>
+          <p><span style="color: #380001">Place : </span>{{worker.s_loc}}</p>
+          <p style="color:#380001">simple description :</p>
+          <p>{{worker.s_desc}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

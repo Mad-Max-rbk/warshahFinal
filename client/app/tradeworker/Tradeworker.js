@@ -12,5 +12,15 @@
         console.log(error);
       });
   }
+  $scope.getAllTradeworker = function(){
+    Tradeworker.getAll()
+    .then(function (data) {
+      $scope.data = data;
+      console.log(data)
+    })
+    .catch(function (error) {
+        console.log(error);
+      });
+  }
 
-})
+});

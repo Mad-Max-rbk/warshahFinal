@@ -98,5 +98,15 @@ module.exports.handleservice={
       }
 
     })
+  },
+  showserv : function (req, res) {
+    Serv.find().exec(function (err, allserv) {
+      if(err){
+        res.status(500).send('err');
+      }else{
+        res.status(200).send(allserv);
+      }
+    });
   }
+
 }

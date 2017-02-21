@@ -20,6 +20,10 @@
 		templateUrl:'app/tradeworker/tradeworker.html',
 		controller:'TradeworkerContr'                 
 	})
+	.when('/showtradeworker',{
+		templateUrl:'app/tradeworker/showworker.html',
+		controller:'TradeworkerContr'                 
+	})
 	.when('/', {
 		templateUrl:'app/main/main.html',
 		controller:'MainController'

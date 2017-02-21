@@ -16,6 +16,10 @@
 		templateUrl:'app/user/login.html',
 		controller:'UserController'                 
 	})
+	.when('/signout', {
+      templateUrl: 'app/user/signout.html',
+      controller: 'UserController'
+    })
 	.when('/tradeworker',{
 		templateUrl:'app/tradeworker/tradeworker.html',
 		controller:'TradeworkerContr'                 

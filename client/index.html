@@ -8,7 +8,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <link href="css/login.css" rel="stylesheet" />
 </head>
-<body ng-app='myapp'>
+<body ng-app='myapp' >
 
 
 <!-- logo -->
@@ -19,20 +19,20 @@
     </div>
   </div>
 <!-- menu bar -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="background-color: #0d1b33;">
 
- <div class="navbar-header">
+ <div class="navbar-header" >
       
-      <a class="navbar-brand" href="#/main">Home Page</a>
+      <a class="navbar-brand" href="#/main" id="navColor">Home Page</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
        <!--  <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cervices <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="navColor">Cervices <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Smith</a></li>
+            <li><a href="#" >Smith</a></li>
             <li><a href="#">Plumber</a></li>
             <li><a href="#">Painter</a></li>
             <li><a href="#">Carpenter</a></li>
@@ -40,7 +40,7 @@
            
           </ul>
         </li>
-        <li><a href="#footer">contact us</a></li>
+        <li><a href="#footer" id="navColor">contact us</a></li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -49,10 +49,11 @@
         <button type="submit" class="btn btn-default">Search</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="#/tradeworker">tradeworker</a></li>
-        <li><a href="#/login">signin</a></li>
-        <li><a href="#/signup">signup</a></li>
-        <li><a href="#/signout">sign out</a></li>
+      <li><a href="#/showtradeworker" id="navColor">Show worker</a></li>
+      <li><a href="#/tradeworker" id="navColor">tradeworker</a></li>
+        <li><a href="#/login" id="navCol">signin</a></li>
+        <li><a href="#/signup" id="navCol">signup</a></li>
+        <li><a href="#/signout" id="navCol">sign out</a></li>
       </ul>
     </div>
 </nav>

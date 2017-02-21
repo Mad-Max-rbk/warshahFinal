@@ -1,4 +1,5 @@
 var User = require('./models/companydb.js');
+var Serv = require('./models/servicesdb.js');
 var jwt = require('jwt-simple');
 // check for user in data base
 module.exports.handleUsers = {
@@ -65,4 +66,38 @@ module.exports.handleUsers = {
     });
   }
 
+}
+
+
+//// handel services
+module.exports.handleservice={
+
+  addserv:function(req,res){
+    var type=req.body.s_type;
+    var loc=req.body.s_loc;
+    var phone=req.body.s_phone;
+    var email=req.body.s_email;
+    var img=req.body.s_img;
+    var desc=req.body.s_desc;
+    var id="test";
+    // console.log(data);
+    Serv.create({
+    s_type:type,
+    s_desc:desc,
+    s_phone:phone,
+    s_area:loc,
+    s_img:img,
+    s_email:email,
+    s_cid:id,
+
+    },function(err,ok){
+      if(err){
+        res.json(err);
+      }
+      else{
+        res.json("add succsees full!!")
+      }
+
+    })
+  }
 }

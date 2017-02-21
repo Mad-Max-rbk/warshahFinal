@@ -20,9 +20,13 @@ mongoose.connect(mongoURI);
 
 
 
+
 app.post('/api/user/signup', handlers.handleUsers.signup);
 app.post('/api/user/signin', handlers.handleUsers.signin);
 app.get('/api/users', handlers.handleUsers.getUsers);
+
+app.post('/api/insert', handlers.handleservice.addserv);
+
 
 
 var port=process.env.PORT || 8000;

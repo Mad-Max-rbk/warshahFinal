@@ -27,8 +27,6 @@ app.get('/api/users', handlers.handleUsers.getUsers);
 
 app.post('/api/insert', handlers.handleservice.addserv);
 
-
-
 var port=process.env.PORT || 8000;
 app.listen(port);
 console.log('Running on port '+port);

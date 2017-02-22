@@ -2,7 +2,7 @@
 
 .controller('TradeworkerContr',function ($scope,Tradeworker,$location){
 	$scope.data={};
-
+$scope.data.userId = window.localStorage.getItem('userId');
   $scope.upload=function(element){
    var file=element[0];
    console.log(file)
@@ -22,7 +22,7 @@
 Tradeworker.insert($scope.data)
     .then(function (serv) {
         console.log(serv)
-        $scope.data.userId = window.localStorage.getItem('userId');
+        
         console.log($scope.data)
         $location.path('/');
       })

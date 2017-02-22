@@ -72,14 +72,15 @@ module.exports.handleUsers = {
 module.exports.handleservice={
 
   addserv:function(req,res){
+    
     var type=req.body.s_type;
     var loc=req.body.s_loc;
     var phone=req.body.s_phone;
     var email=req.body.s_email;
-    var img=req.body.s_img;
+    var img=req.body.img;
     var desc=req.body.s_desc;
     var id="test";
-    // console.log(data);
+     console.log(req.body);
     Serv.create({
     s_type:type,
     s_desc:desc,

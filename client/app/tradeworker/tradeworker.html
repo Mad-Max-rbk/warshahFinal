@@ -1,6 +1,6 @@
 
 
-  <form class="well form-horizontal" ng-submit="addservice()">
+  <form class="well form-horizontal" ng-submit="addservice()"  >
     <fieldset>
 
       <!-- Form Name -->
@@ -13,7 +13,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-            <select class="form-control" ng-model="data.s_type" required>
+            <select class="form-control" ng-model="data.s_type" required >
             <option value="Smith">Smith</option>
             <option value="Plumber">Plumber</option>
             <option value="painter">painter</option>
@@ -55,7 +55,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
-            <input  ng-model="data.s_desc" placeholder="description" class="form-control"  type="text" required>
+            <input  ng-model="data.s_desc" placeholder="description" class="form-control"  type="text" required >
           </div>
         </div>
       </div>
@@ -63,14 +63,29 @@
       <!-- Text input-->
 
 <div class="form-group">
-        <label class="col-md-4 control-label">Image Url</label>  
+        <label class="col-md-4 control-label">Upload Image</label>  
         <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
-            <input  ng-model="data.s_img" placeholder="imageurl" class="form-control"  type="text" required>
-          </div>
+          
+          <div class="input-group image-preview">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
+                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Browse</span>
+                        <input type="file" max-size=32154 onchange="angular.element(this).scope().upload(this.files)" required accept="image/*"/> <!-- rename it -->
+                    </div>
+                </span>
+            </div><!-- /input-group image-preview [TO HERE]--> 
         </div>
-      </div>
+    
+        </div>
+      
  <!--      imgurl -->
       <div class="form-group">
         <label class="col-md-4 control-label">E-Mail</label>  
@@ -90,7 +105,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-            <input ng-model="data.s_phone" placeholder="(962)" class="form-control" type="text" required>
+            <input ng-model="data.s_phone" placeholder="(962)" class="form-control" type="text" required >
           </div>
         </div>
       </div>
@@ -106,4 +121,97 @@
       </div>
 
     </fieldset>
+     
   </form>
+</div>
+</div>
+
+                    <style type="text/css">
+                      .image-preview-input {
+    position: relative;
+  overflow: hidden;
+  margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+                    </style>
+
+                    <script type="text/javascript">
+                      
+                      $(document).on('click', '#close-preview', function(){ 
+    $('.image-preview').popover('hide');
+    // Hover befor close the preview
+    $('.image-preview').hover(
+        function () {
+           $('.image-preview').popover('show');
+        }, 
+         function () {
+           $('.image-preview').popover('hide');
+        }
+    );    
+});
+
+$(function() {
+    // Create the close button
+    var closebtn = $('<button/>', {
+        type:"button",
+        text: 'x',
+        id: 'close-preview',
+        style: 'font-size: initial;',
+    });
+    closebtn.attr("class","close pull-right");
+    // Set the popover default content
+    $('.image-preview').popover({
+        trigger:'manual',
+        html:true,
+        title: "<strong>Preview</strong>"+$(closebtn)[0].outerHTML,
+        content: "There's no image",
+        placement:'bottom'
+    });
+    // Clear event
+    $('.image-preview-clear').click(function(){
+        $('.image-preview').attr("data-content","").popover('hide');
+        $('.image-preview-filename').val("");
+        $('.image-preview-clear').hide();
+        $('.image-preview-input input:file').val("");
+        $(".image-preview-input-title").text("Browse"); 
+    }); 
+    // Create the preview image
+    $(".image-preview-input input:file").change(function (){     
+        var img = $('<img/>', {
+            id: 'dynamic',
+            width:250,
+            height:200
+        });      
+        var file = this.files[0];
+        var reader = new FileReader();
+        // Set preview image into the popover data-content
+        reader.onload = function (e) {
+            $(".image-preview-input-title").text("Change");
+            $(".image-preview-clear").show();
+            $(".image-preview-filename").val(file.name);            
+            img.attr('src', e.target.result);
+            $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
+        }        
+        reader.readAsDataURL(file);
+    });  
+});
+                    </script>
+
+
+                    

@@ -37,11 +37,11 @@ angular.module('myapp.services', [])
 
 .factory('Tradeworker',function ($http, $location) {
 
-  var insert = function (Tradeworker) {
+  var insert = function (radeworker) {
     return $http({
       method : 'POST',
       url : '/api/insert',
-      data : Tradeworker
+      data : radeworker
     }).then(function (resp) {
       return resp.data
     })

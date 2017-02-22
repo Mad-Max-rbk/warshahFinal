@@ -2,11 +2,15 @@ var express = require("express");
 var app = express();
 var bodyParser=require("body-parser");
 const mongoose = require('mongoose');
-var handlers=require("./handlers.js");
 
+app.use(bodyParser.urlencoded({ extended: true,limit: '50mb' }));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser());
+var handlers=require("./handlers.js");
 ////
 app.use(express.static(__dirname + '/client'));
-app.use(bodyParser.json());
+
+
 
 
 //
@@ -24,7 +28,7 @@ mongoose.connect(mongoURI);
 app.post('/api/user/signup', handlers.handleUsers.signup);
 app.post('/api/user/signin', handlers.handleUsers.signin);
 app.get('/api/users', handlers.handleUsers.getUsers);
-
+console.log('routes')
 app.post('/api/insert', handlers.handleservice.addserv);
 app.get('/api/insert', handlers.handleservice.showserv);
 

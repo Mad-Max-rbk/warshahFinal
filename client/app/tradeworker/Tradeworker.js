@@ -38,7 +38,7 @@ Tradeworker.insert($scope.data)
     Tradeworker.getAll()
     .then(function (data) {
       $scope.data = data;
-      console.log(data)
+      // console.log(data)
     })
     .catch(function (error) {
         console.log(error);

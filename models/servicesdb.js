@@ -9,8 +9,10 @@ var services= new mongo.Schema({
     s_email:String,
     s_cid:String,
 
-},{collection:'services'});
 
-var serv=mongo.model('servecis',services)
+})
+//,{collection:'services'});
+
+var serv = mongo.model('servecis',services)
 
 module.exports=serv

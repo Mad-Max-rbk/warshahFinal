@@ -6,12 +6,15 @@
   	Tradeworker.insert($scope.data)
   	.then(function (serv) {
         console.log(serv)
+        $scope.data.userId = window.localStorage.getItem('userId');
+        console.log($scope.data)
         $location.path('/');
       })
       .catch(function (error) {
         console.log(error);
       });
   }
+  
   $scope.getAllTradeworker = function(){
     Tradeworker.getAll()
     .then(function (data) {

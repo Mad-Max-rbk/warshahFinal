@@ -13,6 +13,6 @@ var services= new mongo.Schema({
 })
 //,{collection:'services'});
 
-var serv = mongo.model('servecis',services)
+var serv = mongo.model('services',services)
 
 module.exports=serv

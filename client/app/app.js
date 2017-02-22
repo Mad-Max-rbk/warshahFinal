@@ -3,6 +3,7 @@
 	'myapp.TradeworkerContr',
 	'myapp.services',
 	'app.main',
+	'app.profile',
 	'ngRoute'
 	])
 
@@ -27,6 +28,10 @@
 	.when('/showtradeworker',{
 		templateUrl:'app/tradeworker/showworker.html',
 		controller:'TradeworkerContr'                 
+	})
+	.when('/profile',{
+		templateUrl:'app/profile/profile.html',
+		controller:'ProfileController'                 
 	})
 	.when('/', {
 		templateUrl:'app/main/main.html',

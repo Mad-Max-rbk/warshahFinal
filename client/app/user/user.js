@@ -13,7 +13,13 @@
     if(userFlag && passFlag){
       User.signin($scope.user)
       .then(function (data) {
+<<<<<<< HEAD
         console.log(data)
+=======
+        console.log($scope.user.username)
+        // console.log(data)
+        //console.log(data.user._id)
+>>>>>>> 0bd929d6c790598d03c17a3159a80ad54621811f
         $window.localStorage.setItem('com.book', data.token);
         $window.localStorage.setItem('user.book', $scope.user.username);
         $location.path('/');
@@ -39,8 +45,13 @@
     if(userFlag && passFlag){
       User.signup($scope.user)
       .then(function (token) {
+        console.log(token)
         $window.localStorage.setItem('com.book', token);
         $window.localStorage.setItem('user.book', $scope.user.username);
+<<<<<<< HEAD
+=======
+         // $window.localStorage.setItem('userId', token.user._id);
+>>>>>>> 0bd929d6c790598d03c17a3159a80ad54621811f
         $location.path('/');
       })
       .catch(function (error) {

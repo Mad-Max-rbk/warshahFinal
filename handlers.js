@@ -79,8 +79,8 @@ module.exports.handleservice={
     var email=req.body.s_email;
     var img=req.body.img;
     var desc=req.body.s_desc;
-    var id="test";
-     console.log(req.body);
+    var id=req.body.userId;
+     
     Serv.create({
     s_type:type,
     s_desc:desc,

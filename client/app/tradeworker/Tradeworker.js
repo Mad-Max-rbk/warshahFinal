@@ -2,7 +2,7 @@
 
 .controller('TradeworkerContr',function ($scope,Tradeworker,$location){
 	$scope.data={};
-
+$scope.data.userId = window.localStorage.getItem('userId');
   $scope.upload=function(element){
    var file=element[0];
    console.log(file)
@@ -22,6 +22,11 @@
 Tradeworker.insert($scope.data)
     .then(function (serv) {
         console.log(serv)
+<<<<<<< HEAD
+=======
+        
+        console.log($scope.data)
+>>>>>>> 0bd929d6c790598d03c17a3159a80ad54621811f
         $location.path('/');
       })
       .catch(function (error) {

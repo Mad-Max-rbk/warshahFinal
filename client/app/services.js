@@ -25,6 +25,8 @@ angular.module('myapp.services', [])
   var signout = function () {
     $window.localStorage.removeItem('com.book');
     $window.localStorage.removeItem('user.book');
+    $window.localStorage.removeItem('userId');
+
     $location.path('/login');
   }
 

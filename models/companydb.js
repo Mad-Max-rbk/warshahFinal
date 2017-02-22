@@ -11,6 +11,11 @@ var comp = new mongo.Schema({
     c_address:String,
     c_email:String,
     c_phone:Number,
+    services : 
+    [{ 
+      type: mongo.Schema.Types.ObjectId,
+      ref: 'servecis'
+    }]
 	},
 	{
 		collection:'company'

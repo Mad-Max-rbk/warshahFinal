@@ -22,6 +22,8 @@
 Tradeworker.insert($scope.data)
     .then(function (serv) {
         console.log(serv)
+        $scope.data.userId = window.localStorage.getItem('userId');
+        console.log($scope.data)
         $location.path('/');
       })
       .catch(function (error) {
@@ -31,6 +33,7 @@ Tradeworker.insert($scope.data)
       }, 1000);
   	
   }
+  
   $scope.getAllTradeworker = function(){
     Tradeworker.getAll()
     .then(function (data) {

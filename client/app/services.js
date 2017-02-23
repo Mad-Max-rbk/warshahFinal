@@ -28,6 +28,7 @@ angular.module('myapp.services', [])
     $window.localStorage.removeItem('userId');
 
     $location.path('/login');
+    $window.location.reload();
   }
 
   return {

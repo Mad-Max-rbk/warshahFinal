@@ -21,6 +21,7 @@
         $window.localStorage.setItem('userId', data.user._id);
 
         $location.path('/');
+        $window.location.reload();
       })
       .catch(function (error) {
         console.log(error);
@@ -48,6 +49,7 @@
         $window.localStorage.setItem('user.book', $scope.user.username);
          // $window.localStorage.setItem('userId', token.user._id);
         $location.path('/');
+        $window.location.reload();
       })
       .catch(function (error) {
         console.error(error);

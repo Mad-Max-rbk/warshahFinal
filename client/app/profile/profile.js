@@ -3,7 +3,9 @@ angular.module('app.profile', [])
 .controller('ProfileController', function ($scope, $location, $window , User , Tradeworker) {
    $scope.data={};
    $scope.data.userId = window.localStorage.getItem('userId');
-  	
+  	// if(!$window.localStorage.getItem("com.book")) {
+   //      $location.path('/');
+   //    }
 
    $scope.profile=[];
    if(window.localStorage.getItem('userId')){

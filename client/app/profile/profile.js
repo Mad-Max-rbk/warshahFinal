@@ -28,5 +28,47 @@ angular.module('app.profile', [])
         console.log(error);
       });
   }
+//// handle update services
+$scope.oneserveice={};
+$scope.openserv=function(id){
+for (var i =0;i<$scope.profile.length; i++) {
+ if($scope.profile[i]['_id']===id){
+  $scope.oneserveice=$scope.profile[i];
+ }
+}
+}
+////
+$scope.edit={};
+  $scope.upload=function(element){
+   var file=element[0];
+   console.log(file)
+    var reader = new FileReader();
+   reader.addEventListener("load", function () {
+    $scope.edit.img = reader.result;
+  }, false);
 
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+   console.log($scope.data)
+  }
+
+///// end upload img
+$scope.editservice=function(id){
+$scope.edit.id=id;
+
+Tradeworker.edit($scope.edit);
+$window.location.reload();
+}
+// end get one servecis to edit 
+$scope.deleteid={};
+$scope.Confirmdelete = function (id) {
+  if ($window.confirm("Are you Sure!!!")) {
+     $scope.deleteid.id=id;
+    console.log($scope.deleteid)
+    Tradeworker.deleteserv($scope.deleteid);
+
+       } 
+        $window.location.reload();
+      }
 })

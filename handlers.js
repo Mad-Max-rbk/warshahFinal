@@ -108,6 +108,58 @@ module.exports.handleservice={
         res.status(200).send(allserv);
       }
     });
+  },
+
+//// edit service by id 
+editserv : function(req,res){
+console.log(req.body);
+    var type=req.body.s_type;
+    var loc=req.body.s_loc;
+    var phone=req.body.s_phone;
+    var email=req.body.s_email;
+    var img=req.body.img;
+    var desc=req.body.s_desc;
+    var id=req.body.id;
+    for(var key in req.body){
+      if(req.body[key]===""){
+        delete req.body[key]
+      }
+    }
+Serv.update(
+ 
+  // {_id:id},
+  // {s_type:type,
+  //   s_desc:desc,
+  //   s_phone:phone,
+  //   s_area:loc,
+  //   s_img:img,
+  //  s_email:email}
+  {_id:id},req.body
+    
+ ,function(err,ok){
+
+  if(err){
+     res.json(err)
+  }
+  else{
+     res.json("edit succsees full!!")
+  }
   }
 
+)
+
+},
+// end edit 
+deleteserv:function(req,res){
+  var id=req.body.id;
+  console.log(id);
+  Serv.remove({_id:id},function(err,ok){
+    if(err){
+      res.json(err)
+    }
+    else{
+      res.json(ok)
+    }
+  })
+}
 }

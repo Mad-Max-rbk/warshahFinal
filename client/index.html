@@ -1,8 +1,8 @@
 <html>
 <head>
-	<title>Warshah</title>
-	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="css/main.css">
+  <title>Warshah</title>
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
   <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
   <link href='https://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -16,6 +16,10 @@
     <div class="navbar-header">
         <img alt="Brand" src="app/main/image/Logo.gif" class="img-responsive">
       </a>
+    </div>
+    <div class="profile" >
+    <h1  class="glyphicon glyphicon-user" style="margin-left:738px;margin-top: 20px;"></h1>
+     <button  type="button" onclick="location.href='#/profile'"  class="btn btn-primary btn-lg" data-toggle="dropdown" style="margin-left:700px;padding: 33px;">profile</button>    
     </div>
   </div>
 <!-- menu bar -->
@@ -32,7 +36,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="navColor">Cervices <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" >Smith</a></li>
+            <li><a href="#">Smith</a></li>
             <li><a href="#">Plumber</a></li>
             <li><a href="#">Painter</a></li>
             <li><a href="#">Carpenter</a></li>
@@ -41,20 +45,14 @@
           </ul>
         </li>
         <li><a href="#footer" id="navColor">contact us</a></li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
       <li><a href="#/showtradeworker" id="navColor">Show worker</a></li>
       <li><a href="#/tradeworker" id="navColor">tradeworker</a></li>
-        <li><a href="#/profile" id="navColor">Profile</a></li>
-        <li><a href="#/login" id="navCol">signin</a></li>
-        <li><a href="#/signup" id="navCol">signup</a></li>
-        <li><a href="#/signout" id="navCol">sign out</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="#/profile" id="navColor">Profile</a></li> -->
+        <li><a href="#/login" id="navColor">signin</a></li>
+        <li><a href="#/signup" id="navColor">signup</a></li>
+        <li><a href="#/signout" id="navColor" class="signout">sign out</a></li>
       </ul>
     </div>
 </nav>
@@ -92,3 +90,17 @@
 
  </body>
  </html>
+
+
+ <script type="text/javascript">
+    if(localStorage.getItem('user.book')){
+    $('.profile').show(1000);
+    $('.signout').css("color", "red");
+    }else {
+    $('.profile').hide(1000);
+    $('.signout').css("color", "white");
+    }
+
+
+
+</script>

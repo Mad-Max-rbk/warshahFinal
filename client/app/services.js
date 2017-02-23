@@ -59,8 +59,31 @@ angular.module('myapp.services', [])
     })
   }
 
+ //// edit service
+  var edit=function(service){
+     return $http({
+      method : 'POST',
+      url : '/api/edit',
+      data : service
+    }).then(function (resp) {
+      return resp.data
+    })
+  }
+  /// delete service
+  var deleteserv=function (deleteid) {
+     return $http({
+      method : 'POST',
+      url : '/api/delete',
+      data : deleteid
+    }).then(function (resp) {
+      return resp.data
+    })
+  }
+
   return {
     insert : insert,
-    getAll : getAll
+    getAll : getAll,
+    edit : edit,
+    deleteserv:deleteserv
   }
 })

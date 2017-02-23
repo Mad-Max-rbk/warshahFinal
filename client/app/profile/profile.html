@@ -13,13 +13,265 @@
           <h2 style="font-weight: bold;">{{worker.s_type}}</h2>
           <p><span style="color: #380001"> Email </span> {{worker.s_email}}</p>
           <p><span style="color: #380001">Phone : </span>{{worker.s_phone}}</p>
-          <p><span style="color: #380001">Place : </span>{{worker.s_loc}}</p>
-          <p style="color:#380001">simple description :</p>
-          <p>{{worker.s_desc}}</p>
-          <p><a href="#" class="btn btn-primary" role="button">Details</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p><span style="color: #380001">Place : </span>{{worker.s_area}}</p>
+          <p style="color:#380001">simple description : &nbsp;{{worker.s_desc}}</p>
+          
+          <p><input type="submit" class="btn btn-default" role="button" id="edit" value="edit" onclick="div_show()" ng-click="openserv(worker._id)">&nbsp;&nbsp;<input type="submit" class="btn btn-danger" role="button" id="edit" value="Delete"  ng-click="Confirmdelete(worker._id)"></p>
+
         </div>
       </div>
     </div>
   </div>
 </div>
 </div>
+<!--  form for edit start here  -->
+<div id="abc">
+  
+  <form class="well form-horizontal" ng-submit="editservice(oneserveice['_id'])" onsubmit ="div_hide()" >
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend><center><h2><b> Edit Service<hr>{{oneserveice['s_type']}}</b></h2></center></legend><br>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">service type</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select class="form-control" ng-model="edit.s_type"  >
+            <option value="Smith">Smith</option>
+            <option value="Plumber">Plumber</option>
+            <option value="painter">painter</option>
+            <option value="housekeeping">housekeeping</option>
+            <option value="carpenter">carpenter</option>
+            <option value="Electricity technician">Electricity technician</option>
+            <option value="Other" >Other</option>
+          </select>
+          </div>
+        </div>
+      </div>
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Place</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+           <select class="form-control" ng-model="edit.s_area" >
+            <option value="Amman">Amman</option>
+            <option value="Aqaba">Aqaba</option>
+            <option value="Zarqa">Zarqa</option>
+            <option value="Irbid">Irbid</option>
+            <option value="Tafila">Tafila</option>
+             <option value="Karak">Karak</option>
+             <option value="Maan">Maan</option>
+            <option value="Other" >Other</option>
+          </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+     
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Description</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
+            <input  ng-model="edit.s_desc" class="form-control"  type="text" 
+             >
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+<div class="form-group">
+        <label class="col-md-4 control-label">Upload Image</label>  
+        <div class="col-md-4 inputGroupContainer">
+          
+          <div class="input-group image-preview">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
+                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Browse</span>
+                        <input type="file" max-size=32154 onchange="angular.element(this).scope().upload(this.files)"  accept="image/*"/> <!-- rename it -->
+                    </div>
+                </span>
+            </div><!-- /input-group image-preview [TO HERE]--> 
+        </div>
+    
+        </div>
+      
+ <!--      imgurl -->
+      <div class="form-group">
+        <label class="col-md-4 control-label">E-Mail</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input ng-model="edit.s_email" placeholder="E-Mail Address" class="form-control"  type="email" >
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Contact No.</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+            <input ng-model="edit.s_phone" placeholder="(962)" class="form-control" type="text"  >
+          </div>
+        </div>
+      </div>
+
+      <!-- Select Basic --> 
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-lg btn-primary btn-block">SUBMIT <span class="glyphicon glyphicon-send"></span></button><button class="btn btn-lg btn-danger btn-block"id="close" onclick ="div_hide()">close</button>
+        </div>
+      </div>
+
+    </fieldset>
+     
+  </form>
+  
+</div> <!-- **********************end div popup***************** -->
+
+
+
+
+
+<!-- end style popup -->
+<!-- script for popup -->
+<script type="text/javascript">
+  
+
+  
+
+//Function To Display Popup
+function div_show() {
+
+document.getElementById('abc').style.display = "block";
+}
+//Function to Hide Popup
+function div_hide(){
+  
+document.getElementById('abc').style.display = "none";
+}
+</script>
+
+
+<style type="text/css">
+#abc {
+width:100%;
+height:100%;
+opacity:.95;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-color:#313131;
+overflow:auto
+}
+                      .image-preview-input {
+    position: relative;
+  overflow: hidden;
+  margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+                    </style>
+
+                    <script type="text/javascript">
+                      
+                      $(document).on('click', '#close-preview', function(){ 
+    $('.image-preview').popover('hide');
+    // Hover befor close the preview
+    $('.image-preview').hover(
+        function () {
+           $('.image-preview').popover('show');
+        }, 
+         function () {
+           $('.image-preview').popover('hide');
+        }
+    );    
+});
+
+$(function() {
+    // Create the close button
+    var closebtn = $('<button/>', {
+        type:"button",
+        text: 'x',
+        id: 'close-preview',
+        style: 'font-size: initial;',
+    });
+    closebtn.attr("class","close pull-right");
+    // Set the popover default content
+    $('.image-preview').popover({
+        trigger:'manual',
+        html:true,
+        title: "<strong>Preview</strong>"+$(closebtn)[0].outerHTML,
+        content: "There's no image",
+        placement:'bottom'
+    });
+    // Clear event
+    $('.image-preview-clear').click(function(){
+        $('.image-preview').attr("data-content","").popover('hide');
+        $('.image-preview-filename').val("");
+        $('.image-preview-clear').hide();
+        $('.image-preview-input input:file').val("");
+        $(".image-preview-input-title").text("Browse"); 
+    }); 
+    // Create the preview image
+    $(".image-preview-input input:file").change(function (){     
+        var img = $('<img/>', {
+            id: 'dynamic',
+            width:250,
+            height:200
+        });      
+        var file = this.files[0];
+        var reader = new FileReader();
+        // Set preview image into the popover data-content
+        reader.onload = function (e) {
+            $(".image-preview-input-title").text("Change");
+            $(".image-preview-clear").show();
+            $(".image-preview-filename").val(file.name);            
+            img.attr('src', e.target.result);
+            $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
+        }        
+        reader.readAsDataURL(file);
+    });  
+});
+                    </script>

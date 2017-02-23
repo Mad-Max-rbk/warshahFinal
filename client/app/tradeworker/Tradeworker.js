@@ -2,6 +2,7 @@
 
 .controller('TradeworkerContr',function ($scope,Tradeworker,$location){
 	$scope.data={};
+
 $scope.data.userId = window.localStorage.getItem('userId');
   $scope.upload=function(element){
    var file=element[0];

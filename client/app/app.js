@@ -37,6 +37,10 @@
 		templateUrl:'app/main/main.html',
 		controller:'MainController'
 	})
+	.when('/contactus', {
+		templateUrl:'app/main/contactus.html',
+		controller:'MainController'
+	})
 	 .otherwise({redirectTo:'/'});
 
 })

@@ -18,7 +18,7 @@ angular.module('app.profile', [])
     	for (var i = 0; i < data.length; i++) {
     		if(data[i]['s_cid'] === userID){
       	 		 $scope.profile.push(data[i]);
-      	 		console.log($scope.profile)
+      	 		console.log(data)
     		}
     	}
     })

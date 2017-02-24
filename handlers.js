@@ -9,9 +9,10 @@ module.exports.handleUsers = {
 
     User.findOne({username: username})
       .then(function (user) {
-        console.log(user)
-       // console.log(user)
+       
+     console.log(user)
         if (!user) {
+
           res.status(404).json("user not found")
         } else {
           user.comparePasswords(password)
@@ -19,6 +20,7 @@ module.exports.handleUsers = {
               if (isMatch) {
                 var token = jwt.encode(user, 'secret');
                 res.json({token : token, user : user});
+
               } else {
                 res.json("password not matched")
               }

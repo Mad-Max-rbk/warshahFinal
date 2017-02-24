@@ -45,7 +45,7 @@
         </li>
         <li><a href="#footer" id="navColor">contact us</a></li>
       <li><a href="#/showtradeworker" id="navColor">Show worker</a></li>
-      <li><a href="#/tradeworker" id="navColor">tradeworker</a></li>
+      <li class="trade"><a href="#/tradeworker" id="navColor">tradeworker</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#/profile" id="navColor" class="profilee">Profile</a></li>
@@ -92,16 +92,18 @@
 
  <script type="text/javascript">
     if(localStorage.getItem('user.book')){
-    $('.profilee').show(1000);
+    $('.profilee').show();
     $('.signout').css("color", "red");
-    $('.signout').show(1000);
-    $('.sign').hide(1000);
+	$('.trade').show();
+    $('.signout').show();
+    $('.sign').hide();
 
     }else {
-    $('.profilee').hide(1000);
+	$('.trade').hide();
+    $('.profilee').hide();
     $('.signout').css("color", "white");
-    $('.signout').hide(1000);
-    $('.sign').show(1000);
+    $('.signout').hide();
+    $('.sign').show();
     }
 
 

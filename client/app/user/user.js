@@ -13,15 +13,20 @@
     if(userFlag && passFlag){
       User.signin($scope.user)
       .then(function (data) {
-        console.log($scope.user.username)
-        // console.log(data)
-        //console.log(data.user._id)
+          
+       
         $window.localStorage.setItem('com.book', data.token);
         $window.localStorage.setItem('user.book', $scope.user.username);
-        $window.localStorage.setItem('userId', data.user._id);
-
-        $location.path('/');
-        $window.location.reload();
+        $window.localStorage.setItem('userId',data['user']['_id']);
+        if($window.localStorage.setItem('userId',data['user']['_id'])!==null){
+           $location.path('/profile');
+		   $window.location.reload();
+        }else{
+         //$window.location.reload();
+         $location.path('/');
+        }
+       
+       
       })
       .catch(function (error) {
         console.log(error);
@@ -44,16 +49,17 @@
     if(userFlag && passFlag){
       User.signup($scope.user)
       .then(function (token) {
-        console.log(token)
-        $window.localStorage.setItem('com.book', token);
-        $window.localStorage.setItem('user.book', $scope.user.username);
-         // $window.localStorage.setItem('userId', token.user._id);
-        $location.path('/');
-        $window.location.reload();
+        //console.log(token)
+        
+        
+       
+		$location.path('/login');
+		
       })
       .catch(function (error) {
         console.error(error);
       });
+	  
     } else {
       if(!userFlag && !passFlag){
        $scope.msg = "Wrong input for user or Password"

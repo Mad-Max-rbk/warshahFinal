@@ -2,7 +2,7 @@ angular.module('app.profile', [])
 
 .controller('ProfileController', function ($scope, $location, $window , User , Tradeworker) {
    $scope.data={};
-   $scope.data.userId = window.localStorage.getItem('userId');
+  // $scope.data.userId = window.localStorage.getItem('userId');
   	// if(!$window.localStorage.getItem("com.book")) {
    //      $location.path('/');
    //    }
@@ -10,19 +10,22 @@ angular.module('app.profile', [])
    $scope.profile=[];
    if(window.localStorage.getItem('userId')){
      var userID = window.localStorage.getItem('userId');
+     $scope.data.userId=userID;
    }
 
   	
  
   $scope.getProfile = function(){
+    console.log($scope.data.userId)
     Tradeworker.getAll()
     .then(function (data) {
     	for (var i = 0; i < data.length; i++) {
-    		if(data[i]['s_cid'] === userID){
+    		if(data[i]['s_cid'] === $scope.data.userId){
       	 		 $scope.profile.push(data[i]);
       	 		console.log($scope.profile)
     		}
     	}
+      return $scope.profile
     })
     .catch(function (error) {
         console.log(error);
@@ -36,6 +39,7 @@ for (var i =0;i<$scope.profile.length; i++) {
   $scope.oneserveice=$scope.profile[i];
  }
 }
+console.log( $scope.oneserveice)
 }
 ////
 $scope.edit={};
@@ -56,7 +60,7 @@ $scope.edit={};
 ///// end upload img
 $scope.editservice=function(id){
 $scope.edit.id=id;
-
+console.log(id)
 Tradeworker.edit($scope.edit);
 $window.location.reload();
 }

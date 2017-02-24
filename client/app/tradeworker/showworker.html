@@ -8,8 +8,8 @@
      </h3>
   </div>
     <div class="panel-body">
-      <div class="row">
-      <div ng-repeat="worker in data">
+      <div class="row" ng-repeat="worker in all">
+     
         <div class="col-md-6">
          <div class="col-md-6">
         <img class="thumbnail" src="{{worker.s_img}}" style="width: 180px;height: 280px">
@@ -23,7 +23,7 @@
           <p>{{worker.s_desc}}</p>
         </div>
       </div>
-    </div>
+    
   </div>
 </div>
 </div>

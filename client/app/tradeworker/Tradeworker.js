@@ -1,9 +1,12 @@
  angular.module('myapp.TradeworkerContr',[])
 
-.controller('TradeworkerContr',function ($scope,Tradeworker,$location){
+.controller('TradeworkerContr',function ($scope,Tradeworker,$location,$window){
 	$scope.data={};
 
-$scope.data.userId = window.localStorage.getItem('userId');
+if(window.localStorage.getItem('userId')){
+     var userID = window.localStorage.getItem('userId');
+     $scope.data.userId=userID;
+   }
   $scope.upload=function(element){
    var file=element[0];
    console.log(file)
@@ -15,9 +18,10 @@ $scope.data.userId = window.localStorage.getItem('userId');
   if (file) {
     reader.readAsDataURL(file);
   }
-   console.log($scope.data)
+   
   }
 	  $scope.addservice = function () {
+      console.log($scope.data)
      setTimeout(function(){
 
 Tradeworker.insert($scope.data)
@@ -34,11 +38,11 @@ Tradeworker.insert($scope.data)
       }, 1000);
   	
   }
-  
+  $scope.all={};
   $scope.getAllTradeworker = function(){
     Tradeworker.getAll()
     .then(function (data) {
-      $scope.data = data;
+     return $scope.all = data;
       // console.log(data)
     })
     .catch(function (error) {

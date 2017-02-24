@@ -28,13 +28,13 @@ mongoose.connect(mongoURI);
 app.post('/api/user/signup', handlers.handleUsers.signup);
 app.post('/api/user/signin', handlers.handleUsers.signin);
 app.get('/api/users', handlers.handleUsers.getUsers);
-
 app.post('/api/insert', handlers.handleservice.addserv);
+app.post('/api/edit', handlers.handleservice.editserv);
 app.get('/api/insert', handlers.handleservice.showserv);
+app.post('/api/delete', handlers.handleservice.deleteserv);
 
 
-
-var port=process.env.PORT || 8080;
+var port=process.env.PORT || 8000;
 app.listen(port);
 console.log('Running on port '+port);
 

@@ -47,6 +47,11 @@ html, body {
 #navColor {
   color: white;
 }
+
+.navbar-nav>li>a {
+  line-height: 50px !important;
+  font-size: 13pt;
+}
 /*
 #navCol {
   color: #f4bcbc;

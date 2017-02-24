@@ -11,27 +11,26 @@
 <body ng-app='myapp' >
 
 
-<!-- logo -->
+  <!-- logo -->
   <div class="container-fluid">
-    <div class="navbar-header">
-        <img alt="Brand" src="app/main/image/Logo.gif" class="img-responsive">
-      </a>
-    </div>
-    <div class="profile" >
-    <h1  class="glyphicon glyphicon-user" style="margin-left:738px;margin-top: 20px;"></h1>
-     <button  type="button" onclick="location.href='#/profile'"  class="btn btn-primary btn-lg" data-toggle="dropdown" style="margin-left:700px;padding: 33px;">profile</button>    
-    </div>
-  </div>
-<!-- menu bar -->
-<nav class="navbar navbar-default" style="background-color: #0d1b33;">
+    <nav class="navbar navbar-default" style="height: 80px;background-color: #0d1b33;">
 
- <div class="navbar-header" >
+
+      <div class="navbar-header" style="
+      /* padding: 5px; */">
+      <a href="#/">
+        
+      <img alt="Brand" src="app/main/image/Logo.gif"  class="img-responsive" style="
+      padding: 10px;
+      /*background-color: #7f8ea5;*/
+      width: 100px;">
+      </a>
       
-      <a class="navbar-brand" href="#/main" id="navColor">Home Page</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    </div><!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" style="
+      vertical-align: middle;
+      ">
        <!--  <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="navColor">Cervices <span class="caret"></span></a>
@@ -49,14 +48,13 @@
       <li><a href="#/tradeworker" id="navColor">tradeworker</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li><a href="#/profile" id="navColor">Profile</a></li> -->
-        <li><a href="#/login" id="navColor">signin</a></li>
-        <li><a href="#/signup" id="navColor">signup</a></li>
-        <li><a href="#/signout" id="navColor" class="signout">sign out</a></li>
+        <li><a href="#/profile" id="navColor" class="profilee">Profile</a></li>
+        <li><a href="#/login" id="navColor" class="sign" style="display: none;">signin</a></li>
+        <li><a href="#/signup" id="navColor" class="sign" style="display: none;">signup</a></li>
+        <li><a href="#/signout" id="navColor" class="signout" style="color: red;">sign out</a></li>
       </ul>
     </div>
 </nav>
-
 
 <!-- footer -->
 <ng-view></ng-view>
@@ -94,11 +92,16 @@
 
  <script type="text/javascript">
     if(localStorage.getItem('user.book')){
-    $('.profile').show(1000);
+    $('.profilee').show(1000);
     $('.signout').css("color", "red");
+    $('.signout').show(1000);
+    $('.sign').hide(1000);
+
     }else {
-    $('.profile').hide(1000);
+    $('.profilee').hide(1000);
     $('.signout').css("color", "white");
+    $('.signout').hide(1000);
+    $('.sign').show(1000);
     }
 
 

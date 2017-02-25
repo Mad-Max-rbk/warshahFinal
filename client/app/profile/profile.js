@@ -11,12 +11,20 @@ angular.module('app.profile', [])
    if(window.localStorage.getItem('userId')){
      var userID = window.localStorage.getItem('userId');
      $scope.data.userId=userID;
+	 var uimg=window.localStorage.getItem('Cimg');
+	 $scope.data.cimg=uimg;
+	 var uname=window.localStorage.getItem('Uname'); 
+	 $scope.data.uname=uname;
    }
 
-  	
+  	$scope.getcominfo=function(){
+		return $scope.data;
+	}
  
   $scope.getProfile = function(){
-    console.log($scope.data.userId)
+   // console.log("hello"+$scope.data)
+	console.log($scope.data)
+	//console.log("gbhdfhdfhdhdf")
     Tradeworker.getAll()
     .then(function (data) {
     	for (var i = 0; i < data.length; i++) {
@@ -75,4 +83,30 @@ $scope.Confirmdelete = function (id) {
        } 
         $window.location.reload();
       }
+	  /// handle update profilepicture
+	  $scope.imgup={};
+	  $scope.uploadproimg=function(element){
+		   var file=element[0];
+   console.log(file)
+    var reader = new FileReader();
+   reader.addEventListener("load", function () {
+    $scope.imgup.img = reader.result;
+	$scope.imgup.id=$scope.data.userId;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+   console.log($scope.imgup)
+	  }
+	  
+	  /// end upload img profile
+	  $scope.updateimg=function(){
+		  User.udateimg($scope.imgup).then(function(){
+			  $window.localStorage.setItem('Cimg',$scope.imgup.img);
+			  $window.location.reload();
+		  })
+		  
+		  
+	  }
 })

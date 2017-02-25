@@ -32,9 +32,11 @@ app.post('/api/insert', handlers.handleservice.addserv);
 app.post('/api/edit', handlers.handleservice.editserv);
 app.get('/api/insert', handlers.handleservice.showserv);
 app.post('/api/delete', handlers.handleservice.deleteserv);
+app.post('/api/user/updateimg', handlers.handleUsers.imgupdate);
 
 
-var port=process.env.PORT || 8000;
+
+var port=process.env.PORT || 8500;
 app.listen(port);
 console.log('Running on port '+port);
 

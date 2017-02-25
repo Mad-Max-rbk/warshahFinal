@@ -1,31 +1,77 @@
-<div class="panel panel-default" ng-init="getProfile()">
-  <div class="panel-heading" style="background-color: #ed8a09"> 
-    <h3 class="panel-title" style="color: white; text-align: center;padding: 15px;font-size: 35px">
-    Welcom to Your Profile <i style="color: white;padding: 15px" class="glyphicon glyphicon-user"></i> </h3>
+<div class="row" ng-init="getcominfo()" >
+<form ng-submit="updateimg()"> <p style="text-align:center"> <i style="color:#000;padding: 15px" class="glyphicon glyphicon-user"></i>Welcom : <span class="label label-success">{{data.uname}}</span></p>
 
-  </div>
-    <div class="panel-body">
-      <div class="row" >
-      <div ng-repeat="worker in profile">
-        <div class="col-md-6">
-         <div class="col-md-6">
-        <img class="thumbnail" src="{{worker.s_img}}" style="width: 180px;height: 280px">
+   <p style="text-align:-webkit-center;"> <img  class="img-responsive thumbnail " src="{{data.cimg}}" style="height: 27%"/></p>
+	<p style="text-align:center;">
+	     <div class="input-group image-preview">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-indent-left"></i></span>
+                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Browse</span>
+                        <input type="file" max-size=32154 onchange="angular.element(this).scope().uploadproimg(this.files)" required accept="image/*"/> <!-- rename it -->
+                    </div>
+                </span>
+            </div>
+	</p>
+	<p style="text-align:-webkit-center;"><button class="btn btn-info"> Update profile picture</button> </p></form>
+<hr>
+<hr>
+
+	
+</div>
+<div class="container" ng-init="getProfile()">
+<p style="text-align:center"><button type="button" class="btn btn-primary"> you have <span class="badge">({{profile.length}})&nbsp;services</span></button> </p>
+   
+  
+    
+ 
+   
+      <div class="row" ng-repeat="worker in profile">
+      
+         <div class="col-md-1">
+        
         </div>
-        <div class="col-md-6">
-          <h2 style="font-weight: bold;">{{worker.s_type}}</h2>
-          <p><span style="color: #380001"> Email </span> {{worker.s_email}}</p>
-          <p><span style="color: #380001">Phone : </span>{{worker.s_phone}}</p>
-          <p><span style="color: #380001">Place : </span>{{worker.s_area}}</p>
-          <p style="color:#380001">simple description : &nbsp;{{worker.s_desc}}</p>
+         <div class="col-md-5">
+        <img class="thumbnail" src="{{worker.s_img}}" style="height: 280px">
+		 <hr><hr>
+        </div>
+		
+        <div class="col-md-5">
+        <p><span> service type :</span>&nbsp;{{worker.s_type}}</p>
+          <p><span > Email: </span>&nbsp; {{worker.s_email}}</p>
+          <p><span >Phone : </span>&nbsp;{{worker.s_phone}}</p>
+          <p><span >Place : </span>&nbsp;{{worker.s_area}}</p>
+          <p><span>simple description :</span> &nbsp;{{worker.s_desc}}</p>
           
           <p><input type="submit" class="btn btn-default" role="button" id="edit" value="edit" onclick="div_show()" ng-click="openserv(worker._id)">&nbsp;&nbsp;<input type="submit" class="btn btn-danger" role="button" id="edit" value="Delete"  ng-click="Confirmdelete(worker._id)"></p>
-
+ <hr><hr>
+        </div>
+		<div class="col-md-1">
+       
         </div>
       </div>
-    </div>
+  
   </div>
+
 </div>
-</div>
+<style>
+span{
+color: #380001;
+    font-size: x-large;
+    font-family: monospace;}
+	p{
+	color: indigo;
+    font-size: larger;
+    font-family: monospace;
+    font-weight: 900;}
+</style
 <!--  form for edit start here  -->
 <div id="abc">
   

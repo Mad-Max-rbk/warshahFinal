@@ -13,17 +13,17 @@
           <form class="omb_loginForm" ng-submit='signup()'>
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+              <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"  ng-model='user.name' required/>
             </div>
             <span class="help-block"></span>
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" ng-model='user.username' placeholder="username" name="username">
+              <input type="text" class="form-control" ng-model='user.username' placeholder="username" name="username" required>
             </div>
             <span class="help-block"></span>
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-              <input  type="password" class="form-control" ng-model='user.password' placeholder="Password">
+              <input  type="password" class="form-control" ng-model='user.password' placeholder="Password" required>
             </div>
             <span class="help-block"></span>
             <button  class="btn btn-lg btn-primary btn-block" type="submit"><a href="/" class="button"></a>signup</button>

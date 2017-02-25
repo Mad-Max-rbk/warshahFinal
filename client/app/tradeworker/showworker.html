@@ -8,7 +8,7 @@
      </h3>
   </div>
     <div class="panel-body">
-      <div class="row" ng-repeat="worker in all">
+      <div ng-repeat="worker in all">
      
         <div class="col-md-6">
          <div class="col-md-6">
@@ -18,7 +18,7 @@
           <h2 style="font-weight: bold;">{{worker.s_type}}</h2>
           <p><span style="color: #380001"> Email </span> {{worker.s_email}}</p>
           <p><span style="color: #380001">Phone : </span>{{worker.s_phone}}</p>
-          <p><span style="color: #380001">Place : </span>{{worker.s_loc}}</p>
+          <p><span style="color: #380001">Place : </span>{{worker.s_area}}</p>
           <p style="color:#380001">simple description :</p>
           <p>{{worker.s_desc}}</p>
         </div>

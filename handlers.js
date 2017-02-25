@@ -31,8 +31,12 @@ module.exports.handleUsers = {
 
   // add user to data base
   signup: function(req, res) {
+	  console.log(req.body)
     var username = req.body.username;
     var password = req.body.password;
+	var compname=req.body.name;
+	var img="app/main/image/profiledefault.png"; // save path  default image for new user
+		
     // check to see if user already exists
     User.findOne({username: username})
       .exec(function (err, user) {
@@ -42,7 +46,9 @@ module.exports.handleUsers = {
           // make a new user if not one
           return User.create({
             username: username,
-            password: password
+            password: password,
+			c_name: compname,
+			c_img:img
           }, function (err, newUser) {
               // create token to send back for auth
               if(err){
@@ -65,10 +71,34 @@ module.exports.handleUsers = {
         res.json(users);
       }
     });
+  },
+  imgupdate:function(req,res){
+
+	  var img=req.body.img;
+	  var id=req.body.id;
+	  	  console.log(img)
+		  console.log(id)
+	  User.update(
+  {_id:id},{c_img:img}
+    
+ ,function(err,ok){
+
+  if(err){
+     res.json(err)
+  }
+  else{
+     res.json("update profile picture succsees full done by shamasneh!!")
+  }
   }
 
-}
+)
+  }
 
+}///end handle user
+
+/////////////
+
+/////////////////
 
 //// handel services
 module.exports.handleservice={

@@ -7,10 +7,9 @@ var SALT_WORK_FACTOR = 10;
 var comp = new mongo.Schema({
     username:String,
     password:String,
-    c_logo:String,
-    c_address:String,
-    c_email:String,
-    c_phone:Number,
+    c_img:String,
+   c_name:String
+   
 	},
     // services : 
     // [{ 

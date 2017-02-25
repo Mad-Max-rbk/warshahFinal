@@ -18,6 +18,8 @@
         $window.localStorage.setItem('com.book', data.token);
         $window.localStorage.setItem('user.book', $scope.user.username);
         $window.localStorage.setItem('userId',data['user']['_id']);
+		$window.localStorage.setItem('Cimg',data['user']['c_img']);
+		$window.localStorage.setItem('Uname',data['user']['c_name']);
         if($window.localStorage.setItem('userId',data['user']['_id'])!==null){
            $location.path('/profile');
 		   $window.location.reload();
@@ -47,6 +49,7 @@
     var passFlag = $scope.user.password;
     var userFlag = $scope.user.username;
     if(userFlag && passFlag){
+		console.log($scope.user)
       User.signup($scope.user)
       .then(function (token) {
         //console.log(token)

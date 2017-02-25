@@ -31,10 +31,21 @@ angular.module('myapp.services', [])
     $window.location.reload();
   }
 
+  var udateimg = function(img){
+	  return $http({
+      method: 'POST',
+      url: '/api/user/updateimg',
+      data: img
+    }).then(function (resp) {
+      return resp.data;
+    });
+	  
+  }
   return {
     signin: signin,
     signup: signup,
-    signout: signout
+    signout: signout,
+	udateimg:udateimg
   }
 })
 
